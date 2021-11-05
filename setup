@@ -67,7 +67,7 @@ if [ $sysname = "termux" ]; then
 else
   fixngrok
   chmod +x *
-  sudo cp -r ngrok phoenix Sites /usr/bin
+  sudo  mv ngrok phoenix Sites /usr/bin
   echo -e $lgf "\nInstallation Sucessed . Run 'phoenix' command in a new terminal to start tool .  \n"
 fi
 }
