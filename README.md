@@ -1,8 +1,14 @@
 ![phoenixlogo](https://user-images.githubusercontent.com/72663288/140573876-2b0dd8c1-121a-4783-91da-a5aeb0765580.png)
 
-# PHOENIX is a Automated Phising Tool With Upto 45+ UptoDate Phising Templates 
+# PHOENIX is a Automated Phising Tool With Upto 45+ UptoDate Phising Templates <img src="https://img.icons8.com/fluency/48/000000/fenix.png"/>
 
-## Available Phising Pages
+
+## Features 
+
+* 45+ Uptodate Phising Templates
+* Inbuilt Url Masker
+
+## Available Phising Pages 
 <details>
 <summary>Click me to view available phising pages</summary>
 <ol>
@@ -58,11 +64,6 @@
 
 </ol></details>
 
-# Features
-
-* 45+ Uptodate Phising Templates
-* Inbuilt Url Masker
-
 ## Requirements
 
 * PHP
@@ -71,7 +72,7 @@
 
 # Installation
 
-## Android (Termux)
+## Android (Termux) <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white">
 
 ```
 pkg update
@@ -83,7 +84,7 @@ chmod +x setup
 ./setup
 ```
 
-## Debian (Kali,Parrot)
+## Debian (Kali,Parrot) <img src="https://img.shields.io/badge/Debian-A81D33?style=for-the-badge&logo=debian&logoColor=white">
 
 ```
 apt update
@@ -93,6 +94,16 @@ cd Phoenix
 chmod +x setup
 sudo ./setup
 ```
+
+## Usage
+
+```
+After Installation Just run 'phoenix' command in a new terminal to start Tool Phoenix .
+```
+
+If you need Change ip & Port on Line 
+
+
 ![phoenix1](https://user-images.githubusercontent.com/72663288/140573627-e8c86281-efd9-4341-bda3-e68ffcca2a2b.png)
 
 ![phoenix2](https://user-images.githubusercontent.com/72663288/140573632-e101fac4-67a3-4d8f-b9cf-68cdb7ba450a.png)
