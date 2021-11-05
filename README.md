@@ -121,6 +121,8 @@ After Installation Just run 'phoenix' command in a new terminal to start Tool Ph
 If you need Change ip & Port on
 * Line - 
 
+# SCREENSHOTS : 
+
 ![phoenix1](https://user-images.githubusercontent.com/72663288/140573627-e8c86281-efd9-4341-bda3-e68ffcca2a2b.png)
 
 ![phoenix2](https://user-images.githubusercontent.com/72663288/140573632-e101fac4-67a3-4d8f-b9cf-68cdb7ba450a.png)
@@ -131,6 +133,8 @@ If you need Change ip & Port on
 
 * Huge Thanks - <a href="https://github.com/DarkSecDevelopers">DarksecDevelopers</a>
 * Android Pattern - <a href=https://github.com/noob-hackers/mrphish>NoobHackers </a>
+* Url Mask Concept - <a href="https://github.com/yogeshwaran01/maskurl">yogeshwaran01</a>
+* & so many
 * Fully Remake & Remastered - <a href="https://github.com/isuruwa">Devil Master </a>
 
 ---
