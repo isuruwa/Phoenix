@@ -1,0 +1,88 @@
+#!/bin/bash
+#DEVELOPED BY DEVIL MASTER
+#github.com/isuruwa
+
+# Colors
+re='\e[1;31m'
+wh='\e[1;37m'
+bl='\e[1;34m'
+Escape="\033";
+ref="${Escape}[31m";
+gf="${Escape}[32m";
+lgf="${Escape}[92m"
+yf="${Escape}[33m";
+bf="${Escape}[34m";
+cf="${Escape}[36m";
+ee="${Escape}[0m";
+pu='\033[1;35m'
+cy='\033[1;36m'
+lg='\e[1;32m'
+ye='\e[1;33m'
+pink='\033[1;35m'
+
+function sys() {
+        cat /etc/os-release > /dev/null 2>&1
+        if [ "$?" -eq "0" ]; then
+                sysname=linux
+        else
+                sysname=termux
+        fi
+}
+
+function fixngrok() {
+  echo -e $lgf "[+] Downloading ngrok..."
+  case `dpkg --print-architecture` in
+  aarch64)
+      architectureURL="arm64" ;;
+  arm)
+      architectureURL="arm" ;;
+  armhf)
+      architectureURL="arm" ;;
+  amd64)
+      architectureURL="amd64" ;;
+  i*86)
+      architectureURL="386" ;;
+  x86_64)
+      architectureURL="amd64" ;;
+  *)
+      echo "unknown or unsupported architecture"
+  esac
+  wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-${architectureURL}.zip -O ngrok.zip
+  unzip ngrok.zip
+  chmod 777 ngrok
+}
+
+function dependencies() {
+if [ $sysname = "termux" ]; then
+  pkg update
+  pkg upgrade
+  pkg install wget
+  chmod +x *
+  fixngrok
+  mv ngrok phoenix Sites $PREFIX/bin
+  echo -e $lgf "\nInstallation Sucessed . Run 'phoenix' command in a new terminal to start tool .  \n"
+else
+  fixngrok
+  chmod +x *
+  sudo cp -r ngrok phoenix Sites /usr/bin
+  echo -e $lgf "\nInstallation Sucessed . Run 'phoenix' command in a new terminal to start tool .  \n"
+fi
+}
+
+function ngrokauth() {
+  file=$PREFIX/bin/ngrok
+  if [ ! -e "$file" ]; then
+    echo "Ngrok doesn't exist"
+    echo "Jumping to ngrok installation"
+    sleep 5
+    fixngrok
+  else
+     echo -n -e $pink "\n[+] Enter Ngrok Authtoken only (ex -xxxxxxxxxxxxxxxxxxx) :  "
+     read token
+     ngrok authtoken $token
+  fi
+}
+
+sys
+dependencies
+ngrokauth
