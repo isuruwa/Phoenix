@@ -20,6 +20,7 @@ lg='\e[1;32m'
 ye='\e[1;33m'
 pink='\033[1;35m'
 
+# Detect System
 function sys() {
         cat /etc/os-release > /dev/null 2>&1
         if [ "$?" -eq "0" ]; then
@@ -29,6 +30,7 @@ function sys() {
         fi
 }
 
+#Download Ngrok
 function fixngrok() {
   echo -e $lgf "[+] Downloading ngrok..."
   case `dpkg --print-architecture` in
@@ -52,6 +54,7 @@ function fixngrok() {
   chmod 777 ngrok
 }
 
+#Check For Dependancies
 function dependencies() {
 if [ $sysname = "termux" ]; then
   pkg update
@@ -69,6 +72,7 @@ else
 fi
 }
 
+# Configure Ngrok Authtoken
 function ngrokauth() {
   file=$PREFIX/bin/ngrok
   if [ ! -e "$file" ]; then
