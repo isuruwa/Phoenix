@@ -1,9 +1,16 @@
 ![phoenixlogo](https://user-images.githubusercontent.com/72663288/140573876-2b0dd8c1-121a-4783-91da-a5aeb0765580.png)
 
-# PHOENIX is a Automated Phising Tool With Upto 45+ UptoDate Phising Templates <img src="https://img.icons8.com/fluency/48/000000/fenix.png"/>
+<p align="center">
+<img title="Open Source" src="https://img.shields.io/badge/Open%20Source-%E2%99%A5-red?style=for-the-badge" >
+<a href=LICENSE><img title="GitHub version" src="https://img.shields.io/github/license/isuruwa/Phoenix?style=for-the-badge" ></a>
+<img src="https://img.shields.io/github/stars/isuruwa/Phoenix?style=for-the-badge">  
+<img src="https://img.shields.io/github/forks/isuruwa/Phoenix?style=for-the-badge">
+</p>  
+
+# PHOENIX is a Automated Phising Tool With Upto 45+ UptoDate Phising Templates .
 
 
-## Features 
+## Features
 
 * 45+ Uptodate Phising Templates
 * Inbuilt Url Masker
@@ -100,12 +107,38 @@ sudo ./setup
 ```
 After Installation Just run 'phoenix' command in a new terminal to start Tool Phoenix .
 ```
+<p align="center">
+<img src="https://img.icons8.com/fluency/150/000000/fenix.png"/>
+</p>
 
-If you need Change ip & Port on Line 
+## Tested On :
 
+* Kali Linux 2021.2 <img src="https://img.icons8.com/nolan/25/the-dragon-team.png"/>
+* Parrot Os 4.11 <img src="https://img.icons8.com/color/25/000000/parrot.png"/>
+* Termux
+
+
+If you need Change ip & Port on
+* Line - 
 
 ![phoenix1](https://user-images.githubusercontent.com/72663288/140573627-e8c86281-efd9-4341-bda3-e68ffcca2a2b.png)
 
 ![phoenix2](https://user-images.githubusercontent.com/72663288/140573632-e101fac4-67a3-4d8f-b9cf-68cdb7ba450a.png)
 
 ![phoenix3](https://user-images.githubusercontent.com/72663288/140573636-e14e0cde-18d9-405a-a87b-732f367f494f.png)
+
+## Phising Pages Developers
+
+* Huge Thanks - <a href="https://github.com/DarkSecDevelopers">DarksecDevelopers</a>
+* Android Pattern - <a href=https://github.com/noob-hackers/mrphish>NoobHackers </a>
+* Fully Remake & Remastered - <a href="https://github.com/isuruwa">Devil Master </a>
+
+---
+### ❤️Supporters❤️ 
+
+[![Stars @isuruwa/MSF-ANDRO](https://reporoster.com/stars/dark/isuruwa/Phoenix)](https://github.com/isuruwa/Phoenix/stargazers)
+
+[![Forks @isuruwa/MSF-ANDRO](https://reporoster.com/forks/dark/isuruwa/Phoenix)](https://github.com/isuruwa/Phoenix/network/members)
+---
+
+
