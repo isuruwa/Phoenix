@@ -62,10 +62,12 @@ if [ $sysname = "termux" ]; then
   pkg install wget
   chmod +x *
   fixngrok
+  mv ngrok $PREFIX/bin
   echo -e $lgf "\nInstallation Sucessed . Run './phoenix' command to start tool .  \n"
 else
-  fixngrok
   chmod +x *
+  fixngrok
+  mv ngrok /usr/bin
   echo -e $lgf "\nInstallation Sucessed . Run './phoenix' command to start tool .  \n"
 fi
 }
