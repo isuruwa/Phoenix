@@ -1,14 +1,16 @@
+<a href="https://github.com/isuruwa"><img title="addon" src="https://img.shields.io/badge/isuruwa-PHOENIX-brightgreen?style=for-the-badge&logo=appveyor"></a>
+<br>
+
 ![phoenixlogo](https://user-images.githubusercontent.com/72663288/140573876-2b0dd8c1-121a-4783-91da-a5aeb0765580.png)
 
-
 <p align="center">
-  <img src="https://img.shields.io/badge/Author-HTR--Tech-cyan?style=flat-square">
-  <img src="https://img.shields.io/badge/Open%20Source-Yes-cyan?style=flat-square">
-  <img src="https://img.shields.io/badge/Written%20In-Bash-cyan?style=flat-square">
+<img src="https://img.shields.io/badge/Made%20With-Bash-blue">
+<img src="https://img.shields.io/badge/LICENE-MIT-brightgreen">
+<img src="https://img.shields.io/badge/VERSION-1.0-blueviolet">
+<img src="https://img.shields.io/badge/TYPE-opensource-red">
 </p>
 
 # PHOENIX is a Automated Phising Tool With Upto 45+ UptoDate Phising Templates .
-
 
 ## Features
 
@@ -105,7 +107,7 @@ sudo ./setup
 ## Usage
 
 ```
-After Installation Just run 'phoenix' command in a new terminal to start Tool Phoenix .
+After Installation Run './phoenix' command to start Tool
 ```
 <p align="center">
 <img src="https://img.icons8.com/fluency/150/000000/fenix.png"/>
