@@ -20,10 +20,14 @@ lg='\e[1;32m'
 ye='\e[1;33m'
 pink='\033[1;35m'
 
-if (( $EUID != 0 )); then
-    echo "Please run as root"
-    exit
+if [ "$(whoami)" == "root" ] ; then
+    echo "you are root"
+else
+    echo "you are not root"
+    exit 0
 fi
+
+
 
 trap_ctrlC() {
 echo -e $re "\n\n  [!]  Exiting Program"
