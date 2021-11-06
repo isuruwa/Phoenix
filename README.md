@@ -149,4 +149,4 @@ If you need Change ip & Port on
 [![Forks @isuruwa/MSF-ANDRO](https://reporoster.com/forks/dark/isuruwa/Phoenix)](https://github.com/isuruwa/Phoenix/network/members)
 ---
 
-
+## <a href="https://t.me/fsocietyadmn">Report Bugs & Errors </a>
