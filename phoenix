@@ -20,6 +20,11 @@ lg='\e[1;32m'
 ye='\e[1;33m'
 pink='\033[1;35m'
 
+if (( $EUID != 0 )); then
+    echo "Please run as root"
+    exit
+fi
+
 trap_ctrlC() {
 echo -e $re "\n\n  [!]  Exiting Program"
 echo -e $lgf " [■] Thank You ! Stay Safe ! [■]\n"
