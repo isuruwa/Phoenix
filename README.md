@@ -1,14 +1,16 @@
+<a href="https://github.com/isuruwa"><img title="addon" src="https://img.shields.io/badge/isuruwa-PHOENIX-brightgreen?style=for-the-badge&logo=appveyor"></a>
+<br>
+
 ![phoenixlogo](https://user-images.githubusercontent.com/72663288/140573876-2b0dd8c1-121a-4783-91da-a5aeb0765580.png)
 
 <p align="center">
-<img title="Open Source" src="https://img.shields.io/badge/Open%20Source-%E2%99%A5-red?style=for-the-badge" >
-<a href=LICENSE><img title="GitHub version" src="https://img.shields.io/github/license/isuruwa/Phoenix?style=for-the-badge" ></a>
-<img src="https://img.shields.io/github/stars/isuruwa/Phoenix?style=for-the-badge">  
-<img src="https://img.shields.io/github/forks/isuruwa/Phoenix?style=for-the-badge">
-</p>  
+<img src="https://img.shields.io/badge/Made%20With-Bash-blue">
+<img src="https://img.shields.io/badge/LICENE-MIT-brightgreen">
+<img src="https://img.shields.io/badge/VERSION-1.0-blueviolet">
+<img src="https://img.shields.io/badge/TYPE-opensource-red">
+</p>
 
 # PHOENIX is a Automated Phising Tool With Upto 45+ UptoDate Phising Templates .
-
 
 ## Features
 
@@ -105,7 +107,7 @@ sudo ./setup
 ## Usage
 
 ```
-After Installation Just run 'phoenix' command in a new terminal to start Tool Phoenix .
+After Installation Run './phoenix' command to start Tool
 ```
 <p align="center">
 <img src="https://img.icons8.com/fluency/150/000000/fenix.png"/>
@@ -121,16 +123,22 @@ After Installation Just run 'phoenix' command in a new terminal to start Tool Ph
 If you need Change ip & Port on
 * Line - 
 
+# SCREENSHOTS : 
+
 ![phoenix1](https://user-images.githubusercontent.com/72663288/140573627-e8c86281-efd9-4341-bda3-e68ffcca2a2b.png)
 
 ![phoenix2](https://user-images.githubusercontent.com/72663288/140573632-e101fac4-67a3-4d8f-b9cf-68cdb7ba450a.png)
 
 ![phoenix3](https://user-images.githubusercontent.com/72663288/140573636-e14e0cde-18d9-405a-a87b-732f367f494f.png)
 
+![termuxphoenix](https://user-images.githubusercontent.com/72663288/140616395-69b9c625-9e67-4ad4-b4a6-45e5d9a5b1bc.jpg)
+
+
 ## Phising Pages Developers
 
 * Huge Thanks - <a href="https://github.com/DarkSecDevelopers">DarksecDevelopers</a>
 * Android Pattern - <a href=https://github.com/noob-hackers/mrphish>NoobHackers </a>
+* Url Mask Concept - <a href="https://github.com/yogeshwaran01/maskurl">yogeshwaran01</a>
 * Fully Remake & Remastered - <a href="https://github.com/isuruwa">Devil Master </a>
 
 ---
