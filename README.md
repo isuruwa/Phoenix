@@ -136,7 +136,6 @@ If you need Change ip & Port on
 * Huge Thanks - <a href="https://github.com/DarkSecDevelopers">DarksecDevelopers</a>
 * Android Pattern - <a href=https://github.com/noob-hackers/mrphish>NoobHackers </a>
 * Url Mask Concept - <a href="https://github.com/yogeshwaran01/maskurl">yogeshwaran01</a>
-* & so many
 * Fully Remake & Remastered - <a href="https://github.com/isuruwa">Devil Master </a>
 
 ---
