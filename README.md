@@ -1,11 +1,17 @@
 ![phoenixlogo](https://user-images.githubusercontent.com/72663288/140573876-2b0dd8c1-121a-4783-91da-a5aeb0765580.png)
 
+<img src="https://img.shields.io/badge/Version-2.2-green?style=for-the-badge">
+  <img src="https://img.shields.io/github/license/htr-tech/zphisher?style=for-the-badge">
+  <img src="https://img.shields.io/github/stars/htr-tech/zphisher?style=for-the-badge">
+  <img src="https://img.shields.io/github/issues/htr-tech/zphisher?color=red&style=for-the-badge">
+  <img src="https://img.shields.io/github/forks/htr-tech/zphisher?color=teal&style=for-the-badge">
+</p>
+
 <p align="center">
-<img title="Open Source" src="https://img.shields.io/badge/Open%20Source-%E2%99%A5-red?style=for-the-badge" >
-<a href=LICENSE><img title="GitHub version" src="https://img.shields.io/github/license/isuruwa/Phoenix?style=for-the-badge" ></a>
-<img src="https://img.shields.io/github/stars/isuruwa/Phoenix?style=for-the-badge">  
-<img src="https://img.shields.io/github/forks/isuruwa/Phoenix?style=for-the-badge">
-</p>  
+  <img src="https://img.shields.io/badge/Author-HTR--Tech-cyan?style=flat-square">
+  <img src="https://img.shields.io/badge/Open%20Source-Yes-cyan?style=flat-square">
+  <img src="https://img.shields.io/badge/Written%20In-Bash-cyan?style=flat-square">
+</p>
 
 # PHOENIX is a Automated Phising Tool With Upto 45+ UptoDate Phising Templates .
 
